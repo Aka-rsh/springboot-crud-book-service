@@ -12,6 +12,7 @@ import java.util.List;
  */
 @RestController
 @RequestMapping("/library/book")
+@CrossOrigin(origins = "*")
 public class BookController {
 
     @Autowired
@@ -27,7 +28,7 @@ public class BookController {
         return bookService.saveMultipleBooks(books);
     }
 
-    @GetMapping("/all")
+    @GetMapping
     public ResponseEntity<ResponseStructure<List<Book>>> getAll() {
         return bookService.findAllBooks();
     }
